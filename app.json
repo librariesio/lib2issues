@@ -3,5 +3,16 @@
   "description": "Create GitHubs from Libraries.io webhooks",
   "repository": "https://github.com/librariesio/lib2issues",
   "logo": "https://avatars3.githubusercontent.com/u/11243589?v=3&s=400",
-  "keywords": ["GitHub", "dependency", "ruby", "update", "Libraries.io"]
+  "keywords": ["GitHub", "dependency", "ruby", "update", "Libraries.io"],
+  "env": {
+    "RACK_ENV": "production",
+    "GITHUB_TOKEN": {
+            "description": "Your GitHub OAuth Token",
+            "value": ""
+    },
+    "GITHUB_LABELS": {
+            "description": "Labels to apply to created issues",
+            "value": "enhancement,help wanted"
+    },
+  },
 }
