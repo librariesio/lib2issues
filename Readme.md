@@ -2,6 +2,35 @@
 
 Sinatra app for creating GitHub issues whenever a new version of a dependency is discovered by [Libraries.io](https://libraries.io) using the repository web hook feature.
 
+## Usage
+
+The easiest option is to deploy to heroku with the deploy button below:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+Then add the url of your app to web hooks section for your repo on https://libraries.io
+
+<hr>
+
+Or to run it somewhere else, clone it from github:
+
+   git clone https://github.com/librariesio/lib2issues.git
+
+Install dependencies:
+
+    bundle install
+
+Setup config environment variables:
+
+    GITHUB_TOKEN=mygithubapitoken
+    GITHUB_LABELS=help wanted,enhancement
+
+Start the app:
+
+    rackup
+
+Add the url of your app to web hooks section for your repo on https://libraries.io
+
 ## Development
 
 Source hosted at [GitHub](http://github.com/librariesio/lib2issues).
