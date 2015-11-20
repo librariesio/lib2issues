@@ -21,7 +21,9 @@ class Lib2Issue < Sinatra::Base
     content_type :json
     puts @request_payload.inspect
     client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
-    client.create_issue(@request_payload['repository'], "Version #{@request_payload['version']} of #{@request_payload['name']} has been released")
+    client.create_issue(@request_payload['repository'], "Upgrade #{@request_payload['name']} to version #{@request_payload['version']}",
+    "More info: https://libraries.io/#{@request_payload['platform'].downcase}/#{@request_payload['name']}/#{@request_payload['version']}",
+    labels: ENV['GITHUB_LABELS'])
     status 200
     body ''
   end
