@@ -8,6 +8,10 @@ The easiest option is to deploy to heroku with the deploy button below:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+Setup the required environment variables:
+
+    heroku config:add GITHUB_TOKEN=mygithubapitoken GITHUB_LABELS=help wanted,enhancement
+
 Then add the url of your app to web hooks section for your repo on https://libraries.io
 
 <hr>
