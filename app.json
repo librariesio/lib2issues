@@ -13,6 +13,6 @@
     "GITHUB_LABELS": {
             "description": "Labels to apply to created issues",
             "value": "enhancement,help wanted"
-    },
-  },
+    }
+  }
 }
