@@ -1,0 +1,7 @@
+{
+  "name": "Lib2Issues",
+  "description": "Create GitHubs from Libraries.io webhooks",
+  "repository": "https://github.com/librariesio/lib2issues",
+  "logo": "https://avatars3.githubusercontent.com/u/11243589?v=3&s=400",
+  "keywords": ["GitHub", "dependency", "ruby", "update", "Libraries.io"]
+}
