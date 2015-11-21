@@ -34,7 +34,7 @@ Add the url of your app to web hooks section for your repo on https://libraries.
 ## Development
 
 Source hosted at [GitHub](http://github.com/librariesio/lib2issues).
-Report issues/feature requests on [GitHub Issues](http://github.com/librariesio/lib2issues/issues). Follow us on Twitter [@librariesio](https://twitter.com/librariesio). We also hangout on [Gitter](https://gitter.im/librariesio).
+Report issues/feature requests on [GitHub Issues](http://github.com/librariesio/lib2issues/issues). Follow us on Twitter [@librariesio](https://twitter.com/librariesio). We also hangout on [Gitter](https://gitter.im/librariesio/support).
 
 ### Getting Started
 
