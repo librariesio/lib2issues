@@ -19,6 +19,7 @@ GEM
     sawyer (0.6.0)
       addressable (~> 2.3.5)
       faraday (~> 0.8, < 0.10)
+    semantic_range (1.0.0)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -38,6 +39,7 @@ DEPENDENCIES
   json
   octokit
   rack
+  semantic_range
   sinatra
   typhoeus
   unicorn
