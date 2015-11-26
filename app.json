@@ -1,6 +1,6 @@
 {
   "name": "Lib2Issues",
-  "description": "Create GitHubs from Libraries.io webhooks",
+  "description": "Create GitHub Issues from Libraries.io webhooks",
   "repository": "https://github.com/librariesio/lib2issues",
   "logo": "https://avatars3.githubusercontent.com/u/11243589?v=3&s=400",
   "keywords": ["GitHub", "dependency", "ruby", "update", "Libraries.io"],
@@ -13,6 +13,10 @@
     "GITHUB_LABELS": {
             "description": "Labels to apply to created issues",
             "value": "enhancement,help wanted"
-    }
+    },
+    "SKIP_PRERELEASE": {
+            "description": "Don't open issues for prerelease versions",
+            "value": "true"
+    },
   }
 }
