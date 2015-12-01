@@ -33,8 +33,8 @@ Add the url of your app to web hooks section for your repo on https://libraries.
 
 ## Development
 
-Source hosted at [GitHub](http://github.com/librariesio/lib2issues).
-Report issues/feature requests on [GitHub Issues](http://github.com/librariesio/lib2issues/issues). Follow us on Twitter [@librariesio](https://twitter.com/librariesio). We also hangout on [Gitter](https://gitter.im/librariesio/support).
+Source hosted at [GitHub](https://github.com/librariesio/lib2issues).
+Report issues/feature requests on [GitHub Issues](https://github.com/librariesio/lib2issues/issues). Follow us on Twitter [@librariesio](https://twitter.com/librariesio). We also hangout on [Gitter](https://gitter.im/librariesio/support).
 
 ### Getting Started
 
@@ -42,8 +42,8 @@ New to Ruby? No worries! You can follow these instructions to install a local se
 
 #### Installing a Local Server
 
-First things first, you'll need to install Ruby 2.2.3. I recommend using the excellent [rbenv](https://github.com/sstephenson/rbenv),
-and [ruby-build](https://github.com/sstephenson/ruby-build)
+First things first, you'll need to install Ruby 2.2.3. I recommend using the excellent [rbenv](https://github.com/rbenv/rbenv),
+and [ruby-build](https://github.com/rbenv/ruby-build)
 
 ```bash
 rbenv install 2.2.3
