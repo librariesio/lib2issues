@@ -40,7 +40,7 @@ class Lib2Issue < Sinatra::Base
     client.create_issue(repository, "Upgrade #{name} to version #{version}",
     "Libraries.io has found that there is a newer version of #{name} that this project depends on.
 
-    More info: https://libraries.io/#{platform.downcase}/#{name}/#{version}",
+More info: https://libraries.io/#{platform.downcase}/#{name}/#{version}",
     labels: ENV['GITHUB_LABELS'])
   end
 end
