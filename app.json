@@ -17,6 +17,6 @@
     "SKIP_PRERELEASE": {
             "description": "Don't open issues for prerelease versions",
             "value": "true"
-    },
+    }
   }
 }
