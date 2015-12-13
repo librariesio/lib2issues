@@ -19,7 +19,6 @@ class Lib2Issue < Sinatra::Base
 
   post '/webhook' do
     content_type :json
-    puts @request_payload.inspect
 
     begin
       version = SemanticRange.valid(@request_payload['version'])
