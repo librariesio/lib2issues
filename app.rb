@@ -20,18 +20,25 @@ class Lib2Issue < Sinatra::Base
   post '/webhook' do
     content_type :json
 
-    begin
-      version = SemanticRange.valid(@request_payload['version'])
-    rescue
-      version = @request_payload['version']
-    end
-
-    unless ENV['SKIP_PRERELEASE'] && version.is_a?(SemanticRange::Version) && version.prerelease.present?
+    unless ENV['SKIP_PRERELEASE'] && prerelease?(@request_payload['platform'], @request_payload['version'])
       create_issue(@request_payload['repository'], @request_payload['platform'], @request_payload['name'], @request_payload['version'])
     end
 
     status 200
     body ''
+  end
+
+  def prerelease?(platform, version)
+    begin
+      version = SemanticRange.valid(version)
+      version.prerelease.present?
+    rescue
+      if platform.downcase == 'rubygems'
+        !!(version =~ /[a-zA-Z]/)
+      else
+        false
+      end
+    end
   end
 
   def create_issue(repository, platform, name, version)
