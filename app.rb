@@ -39,7 +39,7 @@ More info: https://libraries.io/#{platform.downcase}/#{name}/#{version}",
   end
 
   def satisfied_by_requirements?(requiremnts, version)
-    return false if requiremnts.empty?
+    return false if requiremnts.nil? || requiremnts.empty?
     requiremnts.none? do |requirement|
       SemanticRange.gtr(version, requirement)
     end
