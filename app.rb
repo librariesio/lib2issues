@@ -20,7 +20,7 @@ class Lib2Issue < Sinatra::Base
   post '/webhook' do
     content_type :json
 
-    create_issue(@data['repository'], @data['platform'], @data['name'], @data['version'], @data['requiremnts'])
+    create_issue(@data['repository'], @data['platform'], @data['name'], @data['version'], @data['requirements'])
 
     status 200
     body ''
