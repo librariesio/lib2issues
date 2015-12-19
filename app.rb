@@ -14,18 +14,35 @@ class Lib2Issue < Sinatra::Base
 
   before do
     request.body.rewind
-    @request_payload = JSON.parse request.body.read
+    @data = JSON.parse request.body.read
   end
 
   post '/webhook' do
     content_type :json
 
-    unless ENV['SKIP_PRERELEASE'] && prerelease?(@request_payload['platform'], @request_payload['version'])
-      create_issue(@request_payload['repository'], @request_payload['platform'], @request_payload['name'], @request_payload['version'])
-    end
+    create_issue(@data['repository'], @data['platform'], @data['name'], @data['version'], @data['requiremnts'])
 
     status 200
     body ''
+  end
+
+  def create_issue(repository, platform, name, version, requiremnts)
+    return if ENV['SKIP_PRERELEASE'] && prerelease?(platform, version)
+    return if satisfied_by_requirements?(requiremnts, version)
+
+    client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+    client.create_issue(repository, "Upgrade #{name} to version #{version}",
+    "Libraries.io has found that there is a newer version of #{name} that this project depends on.
+
+More info: https://libraries.io/#{platform.downcase}/#{name}/#{version}",
+    labels: ENV['GITHUB_LABELS'])
+  end
+
+  def satisfied_by_requirements?(requiremnts, version)
+    return false if requiremnts.empty?
+    requiremnts.none? do |requirement|
+      SemanticRange.gtr(version, requirement)
+    end
   end
 
   def prerelease?(platform, version)
@@ -36,14 +53,5 @@ class Lib2Issue < Sinatra::Base
     else
       false
     end
-  end
-
-  def create_issue(repository, platform, name, version)
-    client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
-    client.create_issue(repository, "Upgrade #{name} to version #{version}",
-    "Libraries.io has found that there is a newer version of #{name} that this project depends on.
-
-More info: https://libraries.io/#{platform.downcase}/#{name}/#{version}",
-    labels: ENV['GITHUB_LABELS'])
   end
 end
