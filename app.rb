@@ -29,15 +29,12 @@ class Lib2Issue < Sinatra::Base
   end
 
   def prerelease?(platform, version)
-    begin
-      version = SemanticRange.valid(version)
-      version.prerelease.present?
-    rescue
-      if platform.downcase == 'rubygems'
-        !!(version =~ /[a-zA-Z]/)
-      else
-        false
-      end
+    parsed_version = SemanticRange.parse(version) rescue nil
+    return true if parsed_version && parsed_version.prerelease.length > 0
+    if platform.downcase == 'rubygems'
+      !!(version =~ /[a-zA-Z]/)
+    else
+      false
     end
   end
 
