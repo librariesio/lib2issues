@@ -7,7 +7,7 @@ GEM
     json (2.0.2)
     kgio (2.10.0)
     multipart-post (2.0.0)
-    octokit (4.3.0)
+    octokit (4.4.0)
       sawyer (~> 0.7.0, >= 0.5.3)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -41,4 +41,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.6
