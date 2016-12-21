@@ -28,7 +28,7 @@ class Lib2Issue < Sinatra::Base
 
   def create_issue(repository, platform, name, version, requiremnts)
     return if ENV['SKIP_PRERELEASE'] && prerelease?(platform, version)
-    return if satisfied_by_requirements?(requiremnts, version)
+    return if satisfied_by_requirements?(requiremnts, version, platform)
 
     client = Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
     client.create_issue(repository, "Upgrade #{name} to version #{version}",
@@ -38,10 +38,10 @@ More info: https://libraries.io/#{platform.downcase}/#{name}/#{version}",
     labels: ENV['GITHUB_LABELS'])
   end
 
-  def satisfied_by_requirements?(requiremnts, version)
+  def satisfied_by_requirements?(requiremnts, version, platform = nil)
     return false if requiremnts.nil? || requiremnts.empty?
     requiremnts.none? do |requirement|
-      SemanticRange.gtr(version, requirement)
+      SemanticRange.gtr(version, requirement, false, platform)
     end
   end
 
