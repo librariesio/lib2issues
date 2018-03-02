@@ -8,7 +8,13 @@ The easiest option is to deploy to heroku with the deploy button below:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-Then add the url of your app to web hooks section for your repo on https://libraries.io
+Before you deploy the heroku app, create a Personal Access Token under your GitHub account Settings -> Developer Settings
+
+Add that token to the `GITHUB_TOKEN` field on heroku
+
+Once deployed on heroku, visit https://libraries.io and go the the web hooks section of the repository you would like use Lib2Issues on
+
+Then add the url of your deployed heroku app to the web hooks section for your repo on and add `/webhook` at the end of the url, i.e. `https://mylib2issues.herokuapp.com/webhook`
 
 <hr>
 
