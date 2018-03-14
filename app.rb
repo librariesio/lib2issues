@@ -2,12 +2,14 @@ require 'bundler'
 require 'json'
 Bundler.require
 
+set :public_folder, File.dirname(__FILE__)
+
+get '/' do
+  erb :home, :layout => :layout
+end
+
 class Lib2Issue < Sinatra::Base
   use Rack::Deflater
-
-  get '/' do
-    erb :home
-  end
 
   configure do
     set :logging, true
