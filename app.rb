@@ -5,6 +5,10 @@ Bundler.require
 class Lib2Issue < Sinatra::Base
   use Rack::Deflater
 
+  get '/' do
+    erb :home
+  end
+
   configure do
     set :logging, true
     set :dump_errors, false
