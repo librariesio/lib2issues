@@ -68,4 +68,4 @@ rbenv global 2.5.0
 
 ## Copyright
 
-Copyright (c) 2016 Andrew Nesbitt. See [LICENSE](https://github.com/librariesio/lib2issues/blob/master/LICENSE) for details.
+Copyright (c) 2018 Andrew Nesbitt. See [LICENSE](https://github.com/librariesio/lib2issues/blob/master/LICENSE) for details.
